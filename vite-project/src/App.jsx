@@ -3,8 +3,10 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+import Code from "./code"
+
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
@@ -16,6 +18,8 @@ function App() {
         <li>information about package.json and script</li>
         <li>Why and how to use react JS</li>
       </ul>
+
+      <Code/>
     </>
   )
 }
