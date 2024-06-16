@@ -1,12 +1,14 @@
 import React from 'react'
 
-function Button({ backgroundColorName }) {
+function Button({ css , colortext }) {
+
+    function handleClick() {
+        root.style.backgroundColor = colorCode
+    }
     return (
-        <button className=' w-20 h-9 rounded-md shadow-lg ' style={{ backgroundColor: backgroundColorName }} onClick={()=>{
-            root.style.backgroundColor = backgroundColorName
-        }}>
-              {backgroundColorName}
-            </button>
+        <div onClick={handleClick}>
+            {colorCode}
+        </div>
     )
 }
 

@@ -1,5 +1,18 @@
-import { useState } from "react"
-import Button from "./components/Button"
+import React, { useState } from "react"
+
+
+
+function Button({ cssStyle, color, onClick }) {
+
+  let btnCss = "px-5 py-2 bg-red-300 rounded-3xl"
+  let combinedCss = `${btnCss} + ${cssStyle}`
+
+  return (
+    <button className={combinedCss} onClick={onClick}  >
+      {color}
+    </button>
+  )
+}
 
 
 function App() {
@@ -7,66 +20,20 @@ function App() {
 
   return (
     <>
-      <div className="root w-full h-screen delay " style={{ backgroundColor: color }}>
-        <div className="fixed  flex flex-wrap  w-auto justify-center bottom-12 inset-x-0 px-4 " >
+      <div className="root w-full h-screen delay-300 transition ease-in-out flex items-center justify-center " style={{ backgroundColor: color }}>
 
-          <div className="flex flex-wrap justify-center items-center gap-4 shadow-xl bg-white rounded-md px-3 py-2 h-12   w-full">
+        <div className="bottom-bar  fixed   w-[70rem]  bottom-5  h-12 bg-white rounded-md flex items-center justify-evenly">
 
-            <button className=' w-20 h-9 rounded-md shadow-lg duration-200' 
-            style={{ backgroundColor: "red" }}
-            onClick={() => {
-              setColor("red")
-            }}>
-              Red
-            </button>
+          <Button color={"red"} onClick={() => setColor("red")} cssStyle={" bg-red-300"}  ></Button>
 
-            <button className=' w-20 h-9 rounded-md shadow-lg duration-200' 
-            style={{ backgroundColor: "blue" }}
-            onClick={() => {
-              setColor("blue")
-            }}>
-              Blue
-            </button>
+          <Button cssStyle={"bg-slate-900 text-white"} color={"black"}
+            onClick={() => { setColor("black") }} ></Button>
 
-            <button className=' w-20 h-9 rounded-md shadow-lg duration-200' 
-            style={{ backgroundColor: "green" }}
-            onClick={() => {
-              setColor("green")
-            }}>
-              Green
-            </button>
-
-            <button className=' w-20 h-9 rounded-md shadow-lg duration-200' 
-            style={{ backgroundColor: "olive" }}
-            onClick={() => {
-              setColor("olive")
-            }}>
-              Olive
-            </button>
-
-            <button className=' w-20 h-9 rounded-md shadow-lg duration-200 text-white' 
-            style={{ backgroundColor: "black" }}
-            onClick={() => {
-              setColor("black")
-            }}>
-              Black
-            </button>
-
-            <button className=' w-20 h-9 rounded-md shadow-lg duration-200' 
-            style={{ backgroundColor: "pink" }}
-            onClick={() => {
-              setColor("pink")
-            }}>
-              Pink
-            </button>
-            
-
-
-
-          </div>
+          <Button cssStyle={"bg-blue-600"} color={"blue"} onClick={() => { setColor("blue") }}></Button>
 
         </div>
-      </div>
+
+      </div >
 
     </>
   )
